@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["icaro.seara@gmail.com"]
 
   spec.summary       = %q{Quake log parser.}
-  spec.description   = %q{Quake log parser.}
+  spec.description   = %q{Quake log parser and report generator.}
   spec.license       = 'MIT'
   spec.homepage      = "https://github.com/icaroseara/quake_log_parse"
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -20,11 +20,11 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "rspec"
-  spec.add_development_dependency "rspec-nc"
-  spec.add_development_dependency "rspec-collection_matchers"
+  spec.add_development_dependency "rspec", "~> 3.2"
+  spec.add_development_dependency "rspec-nc", "~> 0.2"
+  spec.add_development_dependency "rspec-collection_matchers", "~> 1.1"
 
-  spec.add_development_dependency "pry"
-  spec.add_development_dependency "pry-remote"
-  spec.add_development_dependency "pry-nav"
+  spec.add_development_dependency "pry", "~> 0.10"
+  spec.add_development_dependency "pry-remote", "~> 0.1"
+  spec.add_development_dependency "pry-nav", "~> 0.2"
 end
