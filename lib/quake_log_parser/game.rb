@@ -22,7 +22,7 @@ module QuakeLogParser
     end
     
     def players_performance 
-      @players.inject({}) { |h, p| h[p.name] = p.performance; h }
+      @players.inject(Hash.new) { |h, p| h[p.name] = p.performance; h }
     end
     
     def increase_kills means_of_death_id

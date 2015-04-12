@@ -5,6 +5,9 @@ before_install:
   - gem install bundler
 install:
   - bundle install
+addons:
+  code_climate:
+    repo_token: fdcc7fca30b97441f0e92d140c522770b1a14dfc05dfc74f6f4baf426e774ffd
 notifications:
   email:
     recipients:
