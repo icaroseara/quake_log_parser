@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Icaro Seara"]
   spec.email         = ["icaro.seara@gmail.com"]
 
-  spec.summary       = %q{A Quake log parser.}
-  spec.description   = %q{A Quake log parser.}
+  spec.summary       = %q{Quake log parser.}
+  spec.description   = %q{Quake log parser.}
   spec.license       = 'MIT'
   spec.homepage      = "https://github.com/icaroseara/quake_log_parse"
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -22,6 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rspec-nc"
+  spec.add_development_dependency "rspec-collection_matchers"
+
   spec.add_development_dependency "pry"
   spec.add_development_dependency "pry-remote"
   spec.add_development_dependency "pry-nav"
