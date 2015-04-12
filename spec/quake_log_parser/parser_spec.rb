@@ -5,7 +5,7 @@ describe QuakeLogParser::Parser do
   
   describe "#read" do
     it { expect(parser.read).to have(235625).item}
-    it { expect(parser.read.lines).to have(5306).lines }
+    it { expect(parser.read.each_line).to have(5306).lines }
   end
   
   describe "#parse" do
@@ -13,6 +13,25 @@ describe QuakeLogParser::Parser do
     
     describe "get number of games" do
       it { expect(parser.games).to have(21).games}      
+    end
+  end
+  
+  describe "#scoreboard" do
+    context "when games isn't empty" do
+      let(:scoreboard) { parser.scoreboard }
+      let(:game) { scoreboard["game_0"] }
+      
+      before { parser.parse }
+    
+      it { expect(scoreboard).to have(21).games }
+      it { expect(game).to have_key(:total_kills) }
+      it { expect(game).to have_key(:kills_by_means) }
+      it { expect(game).to have_key(:players) }
+      it { expect(game).to have_key(:kills) }
+    end
+    
+    context "when games isn't empty" do
+      it { expect(parser.scoreboard).to be_empty }
     end
   end
   
