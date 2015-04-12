@@ -7,4 +7,8 @@ describe QuakeLogParser::Parser do
     it { expect(parser.read).to have(235625).item}
     it { expect(parser.read.lines).to have(5306).lines }
   end
+  
+  describe "#parse" do
+    before { parser.parse }
+  end
 end
