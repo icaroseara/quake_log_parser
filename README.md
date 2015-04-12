@@ -34,16 +34,60 @@ quake_log_parser.parse
 
 Displays information of all games:
 ```ruby
-quake_log_parser.scoreboard
+puts quake_log_parser.scoreboard
 ```
 
 ### Example
 ```ruby
 quake_log_parser = QuakeLogParser::Parser.new("lib/quake_log_parser/support/games.log")
+=> #<QuakeLogParser::Parser:0x007fe7ea81ef50 @file_path="lib/quake_log_parser/support/games.log", @games=[]>
 
 quake_log_parser.parse
+=> #<File:lib/quake_log_parser/support/games.log>
 
-quake_log_parser.scoreboard
+puts quake_log_parser.scoreboard
+=> {
+    "game_0": {
+        "total_kills": 0,
+        "players": [
+            "Isgalamido"
+        ],
+        "kills": {
+            "Isgalamido": {
+                "kills": 0,
+                "deaths": 0
+            }
+        },
+        "kills_by_means": {}
+    },
+    "game_1": {
+        "total_kills": 11,
+        "players": [
+            "Isgalamido",
+            "Dono da Bola",
+            "Mocinha"
+        ],
+        "kills": {
+            "Isgalamido": {
+                "kills": -5,
+                "deaths": 2
+            },
+            "Dono da Bola": {
+                "kills": 0,
+                "deaths": 1
+            },
+            "Mocinha": {
+                "kills": 0,
+                "deaths": 0
+            }
+        },
+        "kills_by_means": {
+            "MOD_TRIGGER_HURT": 7,
+            "MOD_ROCKET_SPLASH": 3,
+            "MOD_FALLING": 1
+        }
+    }
+}
 ```
 
 

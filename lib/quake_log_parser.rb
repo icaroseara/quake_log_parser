@@ -4,6 +4,7 @@ require "quake_log_parser/parser"
 require "quake_log_parser/game"
 require "quake_log_parser/string_helper"
 require "quake_log_parser/player"
+require "json"
 
 module QuakeLogParser
 end

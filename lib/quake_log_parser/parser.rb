@@ -39,7 +39,7 @@ module QuakeLogParser
     end
     
     def scoreboard
-      @games.inject(Hash.new) { |h, g| h[g.name] = g.to_json; h }
+      @games.inject(Hash.new) { |h, g| h[g.name] = g.to_json; h }.to_json
     end
   end
 end

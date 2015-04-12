@@ -17,21 +17,19 @@ describe QuakeLogParser::Parser do
   end
   
   describe "#scoreboard" do
+    let(:scoreboard) { JSON.parse(parser.scoreboard) }
+    
     context "when games isn't empty" do
-      let(:scoreboard) { parser.scoreboard }
       let(:game) { scoreboard["game_0"] }
       
       before { parser.parse }
-    
+
       it { expect(scoreboard).to have(21).games }
-      it { expect(game).to have_key(:total_kills) }
-      it { expect(game).to have_key(:kills_by_means) }
-      it { expect(game).to have_key(:players) }
-      it { expect(game).to have_key(:kills) }
+      it { expect(game.keys).to include("total_kills", "players", "kills", "kills_by_means") }
     end
     
     context "when games isn't empty" do
-      it { expect(parser.scoreboard).to be_empty }
+      it { expect(scoreboard).to be_empty }
     end
   end
   
