@@ -48,19 +48,6 @@ quake_log_parser.parse
 puts quake_log_parser.scoreboard
 => {
     "game_0": {
-        "total_kills": 0,
-        "players": [
-            "Isgalamido"
-        ],
-        "kills": {
-            "Isgalamido": {
-                "kills": 0,
-                "deaths": 0
-            }
-        },
-        "kills_by_means": {}
-    },
-    "game_1": {
         "total_kills": 11,
         "players": [
             "Isgalamido",
@@ -69,7 +56,7 @@ puts quake_log_parser.scoreboard
         ],
         "kills": {
             "Isgalamido": {
-                "kills": -5,
+                "kills": 0,
                 "deaths": 2
             },
             "Dono da Bola": {
