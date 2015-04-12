@@ -22,7 +22,19 @@ module QuakeLogParser
         when initgame?(line)
           @games << QuakeLogParser::Game.new(counter)
           counter += 1
-        end    
+        when player_info?(line)
+          player = Player.new(player_info(line)[:player_id], player_info(line)[:player_name])
+          @games.last.add_player(player)
+        when kill?(line)
+          victim = @games.last.get_player_by_id(kill_info(line)[:victim_id])
+          @games.last.increase_kills(kill_info(line)[:mean_of_death_id])
+          if Player.world?(kill_info(line)[:killer_id])
+            victim.killed_by_world
+          else
+            killer = @games.last.get_player_by_id(kill_info(line)[:killer_id])
+            victim.killed_by killer            
+          end
+        end   
       end
     end
   end
