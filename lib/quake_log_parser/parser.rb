@@ -1,5 +1,9 @@
+require "quake_log_parser/string_helper"
+
 module QuakeLogParser
   class Parser    
+    include StringHelper
+    
     attr_accessor :games
     
     def initialize file_path
@@ -14,7 +18,11 @@ module QuakeLogParser
     def parse
       counter = 0
       read.each_line do |line|
-        # TODO add added parse rules
+        case
+        when initgame?(line)
+          @games << QuakeLogParser::Game.new(counter)
+          counter += 1
+        end    
       end
     end
   end
