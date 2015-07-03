@@ -1,20 +1,20 @@
-require "quake_log_parser/string_helper"
+require 'quake_log_parser/string_helper'
 
 module QuakeLogParser
-  class Parser    
+  class Parser
     include StringHelper
-    
+
     attr_accessor :games
-    
-    def initialize file_path
-      @file_path = file_path  
+
+    def initialize(file_path)
+      @file_path = file_path
       @games = []
     end
-    
+
     def read
       File.open @file_path
     end
-    
+
     def parse
       counter = 0
       read.each_line do |line|
@@ -32,14 +32,14 @@ module QuakeLogParser
             victim.killed_by_world
           else
             killer = @games.last.get_player_by_id(kill_info(line)[:killer_id])
-            victim.killed_by killer            
+            victim.killed_by killer
           end
-        end   
+        end
       end
     end
-    
+
     def scoreboard
-      @games.inject(Hash.new) { |h, g| h[g.name] = g.to_json; h }.to_json
+      @games.inject({}) { |h, g| h[g.name] = g.to_json; h }.to_json
     end
   end
 end
